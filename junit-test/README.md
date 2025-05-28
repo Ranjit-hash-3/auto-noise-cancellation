@@ -1,3 +1,7 @@
+## api-error-test
+Tests are located under - ApiErrorTest.java
+Tests both positive and negative scenarios
+
 ##  junit5-browserstack
 Master branch contains **Selenium 4 - W3C protocol** samples, for **Selenium 3** please checkout [selenium-3](https://github.com/nithyamn/junit5-browserstack/tree/selenium-3) branch
 </br>
