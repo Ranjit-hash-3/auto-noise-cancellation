@@ -21,6 +21,8 @@ public class ExportErrorDataToExcel {
             headerRow.createCell(4).setCellValue("Device Type");
             headerRow.createCell(5).setCellValue("App Version");
             headerRow.createCell(6).setCellValue("Log Entry");
+            headerRow.createCell(7).setCellValue("RCA");
+            headerRow.createCell(8).setCellValue("Mitigation");
             int rowNum = 1;
             for (ErrorTestData errorTestData : errorTestDataList) {
                 Row row = sheet.createRow(rowNum++);
@@ -31,7 +33,9 @@ public class ExportErrorDataToExcel {
                 row.createCell(4).setCellValue(errorTestData.getDeviceType());
                 row.createCell(5).setCellValue(errorTestData.getAppVersion());
                 row.createCell(6).setCellValue(errorTestData.getLogEntry());
-            }
+                row.createCell(7).setCellValue(errorTestData.getRca());
+                row.createCell(8).setCellValue(errorTestData.getMitigation());
+                }
             for (int i = 0; i < headerRow.getLastCellNum(); i++) {
                 sheet.autoSizeColumn(i);
             }
