@@ -18,6 +18,8 @@ public class ErrorLogsGenerator implements Errors{
             int errorIndex = random.nextInt(errorCodes.length);
             String errorCode = errorCodes[errorIndex];
             String errorMessage = errorMessages[errorIndex];
+            String rca = rcas[errorIndex];
+            String mitigation = mitigations[errorIndex];
             String logEntry = String.format("[%s] %s - %s: %s in module %s. User: %s, SessionID: %s",
                     faker.date().past(7, TimeUnit.DAYS),
                     faker.options().option("ERROR","WARN","FATAL"),
@@ -35,6 +37,8 @@ public class ErrorLogsGenerator implements Errors{
             errorTestData.setUserId(faker.idNumber().valid());
             errorTestData.setDeviceType(faker.options().option("ANDROID","iOS"));
             errorTestData.setAppVersion(faker.app().version());
+            errorTestData.setRca(rca);
+            errorTestData.setMitigation(mitigation);
             errorTestDataList.add(errorTestData);
         }
         ExportErrorDataToExcel.exportDataToExcel(errorTestDataList);

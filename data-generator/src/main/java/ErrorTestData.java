@@ -6,6 +6,9 @@ public class ErrorTestData {
     private String deviceType;
     private String appVersion;
     private String logEntry;
+    private String rca;
+    private String mitigation;
+
     public String getErrorcode() {
         return errorcode;
     }
@@ -60,5 +63,21 @@ public class ErrorTestData {
 
     public void setLogEntry(String logEntry) {
         this.logEntry = logEntry;
+    }
+
+    public String getRca() {
+        return rca;
+    }
+
+    public void setRca(String rca) {
+        this.rca = rca;
+    }
+
+    public String getMitigation() {
+        return mitigation;
+    }
+
+    public void setMitigation(String mitigation) {
+        this.mitigation = mitigation;
     }
 }
