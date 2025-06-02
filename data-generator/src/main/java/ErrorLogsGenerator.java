@@ -3,7 +3,6 @@ import com.github.javafaker.Faker;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -17,6 +16,7 @@ public class ErrorLogsGenerator implements Errors{
         for(int i =0;i<numberOfRowsToGenerate;i++){
             int errorIndex = random.nextInt(errorCodes.length);
             String errorCode = errorCodes[errorIndex];
+            String exceptionMessage = exceptionMessages[errorIndex];
             String errorMessage = errorMessages[errorIndex];
             String rca = rcas[errorIndex];
             String mitigation = mitigations[errorIndex];
@@ -24,14 +24,14 @@ public class ErrorLogsGenerator implements Errors{
                     faker.date().past(7, TimeUnit.DAYS),
                     faker.options().option("ERROR","WARN","FATAL"),
                     errorCode,
-                    errorMessage,
+                    exceptionMessage,
                     faker.app().name(),
                     faker.name().username(),
                     faker.internet().uuid()
                     );
             ErrorTestData errorTestData = new ErrorTestData();
             errorTestData.setErrorcode(errorCode);
-            errorTestData.setErrorMessage(errorMessage);
+            errorTestData.setExceptionMessages(exceptionMessage);
             errorTestData.setTimestamp(faker.date().past(7,TimeUnit.DAYS).toString());
             errorTestData.setLogEntry(logEntry);
             errorTestData.setUserId(faker.idNumber().valid());
@@ -39,8 +39,9 @@ public class ErrorLogsGenerator implements Errors{
             errorTestData.setAppVersion(faker.app().version());
             errorTestData.setRca(rca);
             errorTestData.setMitigation(mitigation);
+            errorTestData.setErrorMessages(errorMessage);
             errorTestDataList.add(errorTestData);
-        }
+            }
         ExportErrorDataToExcel.exportDataToExcel(errorTestDataList);
     }
 }

@@ -5,12 +5,20 @@ public interface Errors {
             "ERR-5005"
     };
 
-    String[] errorMessages = {
+    String[] exceptionMessages = {
             "connection timeout",
             "Authentication failed",
             "Invalid input parameter",
             "Resource not found",
             "Internal server error"
+    };
+
+    String[] errorMessages = {
+                "Something went wrong. Please try again later.",
+                "Your session has expired. Please log in again.",
+                "Sorry, your request cannot be processed. Please check your input.",
+                "The requested resource could not be found.",
+                "Sorry, your request cannot processed. Please try after sometime."
     };
 
     String[] rcas = {

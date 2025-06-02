@@ -15,7 +15,7 @@ public class ExportErrorDataToExcel {
             Sheet sheet = workbook.createSheet("Error Test Data");
             Row headerRow = sheet.createRow(0);
             headerRow.createCell(0).setCellValue("Error Code");
-            headerRow.createCell(1).setCellValue("Error Message");
+            headerRow.createCell(1).setCellValue("Exception Message");
             headerRow.createCell(2).setCellValue("Timestamp");
             headerRow.createCell(3).setCellValue("User ID");
             headerRow.createCell(4).setCellValue("Device Type");
@@ -23,11 +23,12 @@ public class ExportErrorDataToExcel {
             headerRow.createCell(6).setCellValue("Log Entry");
             headerRow.createCell(7).setCellValue("RCA");
             headerRow.createCell(8).setCellValue("Mitigation");
+            headerRow.createCell(9).setCellValue("Error Message");
             int rowNum = 1;
             for (ErrorTestData errorTestData : errorTestDataList) {
                 Row row = sheet.createRow(rowNum++);
                 row.createCell(0).setCellValue(errorTestData.getErrorcode());
-                row.createCell(1).setCellValue(errorTestData.getErrorMessage());
+                row.createCell(1).setCellValue(errorTestData.getExceptionMessages());
                 row.createCell(2).setCellValue(errorTestData.getTimestamp());
                 row.createCell(3).setCellValue(errorTestData.getUserId());
                 row.createCell(4).setCellValue(errorTestData.getDeviceType());
@@ -35,6 +36,7 @@ public class ExportErrorDataToExcel {
                 row.createCell(6).setCellValue(errorTestData.getLogEntry());
                 row.createCell(7).setCellValue(errorTestData.getRca());
                 row.createCell(8).setCellValue(errorTestData.getMitigation());
+                row.createCell(9).setCellValue(errorTestData.getErrorMessages());
                 }
             for (int i = 0; i < headerRow.getLastCellNum(); i++) {
                 sheet.autoSizeColumn(i);

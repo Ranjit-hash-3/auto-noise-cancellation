@@ -1,6 +1,6 @@
 public class ErrorTestData {
     private String errorcode;
-    private String errorMessage;
+    private String exceptionMessages;
     private String timestamp;
     private String userId;
     private String deviceType;
@@ -8,6 +8,16 @@ public class ErrorTestData {
     private String logEntry;
     private String rca;
     private String mitigation;
+
+    private String errorMessages;
+
+    public String getErrorMessages() {
+        return errorMessages;
+    }
+
+    public void setErrorMessages(String errorMessages) {
+        this.errorMessages = errorMessages;
+    }
 
     public String getErrorcode() {
         return errorcode;
@@ -17,12 +27,12 @@ public class ErrorTestData {
         this.errorcode = errorcode;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getExceptionMessages() {
+        return exceptionMessages;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
+    public void setExceptionMessages(String exceptionMessages) {
+        this.exceptionMessages = exceptionMessages;
     }
 
     public String getTimestamp() {
