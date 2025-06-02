@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.automation</groupId>
-  <artifactId>AutomationFramework</artifactId>
+  <artifactId>auto-noise-cancellation</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>AutomationFramework</name>
+  <name>auto-noise-cancellation</name>
   <url>http://maven.apache.org</url>
 
   <properties>

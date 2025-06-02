@@ -49,4 +49,5 @@ public class ExcelLogger {
             headerRow.createCell(i).setCellValue(HEADERS[i]);
         }
     }
+    
 }

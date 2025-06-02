@@ -8,13 +8,11 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.apache.commons.io.FileUtils;
-import org.json.JSONObject;
 
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Collection;
-
 import static com.automation.logs.MockErrorGenerator.generateRandomErrorJson;
 
 public class Hooks {
@@ -29,11 +27,11 @@ public class Hooks {
 //        scenario.attach(fileContent, "image/png", "screenshot");
 //        }
     }
-
     @Before
-    public void beforeScenario(Scenario scenario){
+    public void beforeScenario(Scenario scenario) {
         System.out.println("this will execute before every scenario");
         System.out.println("scenario currently executing : "+scenario.getName());
+       // clearExistingRows();
         Collection<String> tags= scenario.getSourceTagNames();
         sd=ScenarioDetails.getScenarioDetailsInstance();
         sd.setScenarioName(scenario.getName());
