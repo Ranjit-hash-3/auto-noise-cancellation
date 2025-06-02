@@ -1,19 +1,16 @@
 package com.automation.hooks;
 
-import com.automation.logs.ExcelLogger;
-import com.automation.logs.TestResult;
 import com.automation.manager.BrowserManager;
 import com.automation.scenario.ScenarioDetails;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.Collection;
-import static com.automation.logs.MockErrorGenerator.generateRandomErrorJson;
+
+
+
 
 public class Hooks {
     ScenarioDetails sd=null;
@@ -44,32 +41,10 @@ public class Hooks {
             }
         }
 
-        System.out.println("Test id : "+sd.getTestID());
-
     }
 
-    @After
+    @After(order=1)
     public void afterScenario(Scenario scenario){
-
-        if(!scenario.getStatus().toString().equalsIgnoreCase("PASSED"))
-        {
-            JSONObject output  =  generateRandomErrorJson();
-            TestResult result = new TestResult(
-                    sd.getTestID(), output.get("errorCode").toString(),
-                    output.get("errorMessage").toString(),
-                    output.get("logEntry").toString()
-            );
-            ExcelLogger logger = new ExcelLogger();
-            try {
-                logger.logResult(System.getProperty("user.dir")+"/analysis/failedTestDetails.xlsx", result);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.out.println();
-        }
         BrowserManager.getInstance().getDriver().close();
-
     }
-
-
 }

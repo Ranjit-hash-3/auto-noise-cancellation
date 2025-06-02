@@ -10,10 +10,10 @@ import java.io.IOException;
 import static com.automation.logs.ExcelClearRows.preExecutionSetup;
 
 
-@CucumberOptions( features = {"src/test/resources/features/sample.feature"},
+@CucumberOptions( features = {"src/test/resources/features/FunctionalTestCase.feature"},
         glue = {"com.automation"},
         dryRun = false,
-        tags = "@Test_Id_TC1 or @Test_Id_TC2 or @Test_Id_TC3 ",
+        tags = "@demo",
         plugin = { "pretty", "json:target/cucumber/Cucumber.json",
                 "junit:target/cucumber/Cucumber.xml",
                 "html:target/cucumber/reports.html"})

@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BrowserManager {
 
     private static BrowserManager instance=null;
@@ -39,6 +42,7 @@ public class BrowserManager {
             options.addArguments("chrome.switches","--disable-extension");
             options.addArguments("--disable-browser-side-navigation");
             options.setAcceptInsecureCerts(true);
+            options.addArguments("--incognito");
             options.setExperimentalOption("useAutomationExtension",false);
           //  System.setProperty("webdriver.chrome.driver", ".//driver//chromedriver");
             driver= new ChromeDriver(options);

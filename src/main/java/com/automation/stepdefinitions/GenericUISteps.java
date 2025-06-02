@@ -3,8 +3,11 @@ package com.automation.stepdefinitions;
 import com.automation.manager.BrowserManager;
 import com.automation.scenario.ScenarioDetails;
 import com.automation.utlilities.ReadExcell;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -68,4 +71,24 @@ public class GenericUISteps extends Helper {
             Assert.fail("some exception occurred "+e.getMessage());
         }
     }
+
+    @And("^user verify text \"([^\"]*)\" (is|not) on the screen having locator type \"([^\"]*)\" and value \"([^\"]*)\"$")
+    public void user_verify_text_is_or_not_on_screen_with_locator(String expectedText, String condition, String locatorType, String attributeValue) {
+
+        String actualText = null;
+        try {
+            WebElement element = returnWebElement(locatorType, attributeValue);
+            actualText = element.getText();
+        } catch (Exception e) {
+            Assert.fail("Exception while finding element: " + e.getMessage());
+        }
+
+        if (condition.equals("is")) {
+            Assert.assertEquals( expectedText, actualText);
+        } else {
+            Assert.assertNotEquals( expectedText, actualText);
+        }
+    }
+
+
 }
