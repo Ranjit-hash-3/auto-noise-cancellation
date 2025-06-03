@@ -3,7 +3,6 @@ Feature: Login to HRM Application
   Background:
     Given user loads data "./DataFiles/TestData.xlsx"
     Given user launches url "https://www.saucedemo.com/" on browser "chrome"
-    And user waits for "2" seconds
 
   @demo @Test_Id_TC1
 Scenario: Login with standard_user credentials
@@ -11,7 +10,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
   @demo @Test_Id_TC2 @demo1
@@ -19,7 +18,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
 
@@ -28,7 +27,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs1" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
 
@@ -37,7 +36,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs2" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
 
@@ -46,7 +45,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs3" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
   @demo @Test_Id_TC6
@@ -54,7 +53,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs4" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
   @demo @Test_Id_TC7
@@ -62,7 +61,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
 
@@ -71,7 +70,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
 
@@ -80,7 +79,7 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
 
@@ -89,5 +88,5 @@ Scenario: Login with standard_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
     And user clicks on element using locator type "xpath" and value "//input[@id='login-button']"
-    And user waits for "5" seconds
+    And user waits for "2" seconds
     And user verify text "Swag Labs" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
