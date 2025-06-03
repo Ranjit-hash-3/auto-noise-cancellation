@@ -14,7 +14,7 @@ Scenario: Login with standard_user credentials
     And user waits for "5" seconds
     And user verify text "Swag Labs" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
-  @demo @Test_Id_TC2
+  @demo @Test_Id_TC2 @demo1
   Scenario: Login with locked_out_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"
@@ -23,7 +23,7 @@ Scenario: Login with standard_user credentials
     And user verify text "Swag Labs" is on the screen having locator type "xpath" and value "//*[@id='header_container']/div[1]/div[2]/div"
 
 
-  @demo @Test_Id_TC3
+  @demo @Test_Id_TC3 @demo1
   Scenario: Login with problem_user credentials
     When users enters text "#DataOne" using locator type "xpath" and value "//input[@id='user-name']"
     When users enters text "#DataTwo" using locator type "xpath" and value "//input[@id='password']"

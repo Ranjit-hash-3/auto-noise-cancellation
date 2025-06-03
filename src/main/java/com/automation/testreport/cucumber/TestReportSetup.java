@@ -20,9 +20,7 @@ public class TestReportSetup {
     private static final String OUTPUT_EXCEL = System.getProperty("user.dir")+"/analysis/failedTestDetails.xlsx";
     @After(order=2)
     public static void sendReport(Scenario scenario) throws IOException {
-
         if(!scenario.getStatus().toString().equalsIgnoreCase("PASSED")) {
-
             TestReport testReport = new TestReport();
             testReport.setTestId(FrameworkUtil.getTestId(scenario));
             testReport.setEnviromentDetails(FrameworkUtil.getEnvironmentDetails());
@@ -30,7 +28,6 @@ public class TestReportSetup {
             fetchErrorDetailsBySession(testReport, testReport.getSessionId(), testReport.getTimestamp());// for SessionID and timestamp , we will get error details(errorcode,errormsg,exception) from serverlogs
             System.out.println(testReport.toString());
             List<String[]> matchedData = new ArrayList<>();
-
             matchedData.add(new String[]{testReport.getTestId(), testReport.getEnviromentDetails(),
                     testReport.getSessionId(), testReport.getTimestamp(), testReport.getErrorCode(),
                     testReport.getErrorMessage(), testReport.getExceptionMessage()
