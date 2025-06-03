@@ -1,4 +1,6 @@
 import requests
+import sys
+
 
 # Jira credentials and URL
 JIRA_URL = "https://automation25.atlassian.net"
@@ -56,3 +58,7 @@ def fetch_jira_comments_by_errorcode(ErrorCode):
             else:
                 file.write("JIRA ISSUE NOT FOUND")
         file.close
+
+if __name__ == "__main__":
+    ErrorCode = str(sys.argv[1])
+    fetch_jira_comments_by_errorcode(ErrorCode)
