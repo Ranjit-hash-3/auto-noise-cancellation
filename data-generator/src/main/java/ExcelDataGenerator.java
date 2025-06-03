@@ -1,4 +1,4 @@
-//This file is to generate excel logs
+//This file is to generate excel logs - Master Data
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -45,6 +45,22 @@ public class ExcelDataGenerator {
                 "Internal server error"
         };
 
+        String [] RCA = {
+                "Network congestion or failure",
+                "Expired authentication tokens",
+                "Missing required fields API/service calls",
+                "Environment configuration pointing to wrong resource location",
+                "Memory/resource exhaustion"
+        };
+
+        String [] Mitigation = {
+          "Implement retry mechanisms with exponential backoff by developing a resilient client library that automatically retries failed connections with progressively longer wait times between attempt",
+          "Implement an automatic token refresh mechanism that proactively renews authentication tokens before expiration, combined with clear user notifications and graceful re-authentication flows when tokens do expire",
+          "Ensure API documentation clearly specifies parameter requirements by creating comprehensive API reference guides with examples, data types, validation rules, and required vs. optional parameters",
+          "Use content addressing or versioned URLs for immutable resources by implementing a content-addressed storage system where resources are referenced by their content hash rather than location",
+          "Set up monitoring and alerting for server health metrics by implementing comprehensive resource utilization dashboards tracking memory, CPU, disk I/O and network usage with historical trending"
+        };
+
         String[] deviceTypes = {"ANDROID", "IOS", "WEB"};
         String[] usernames = {"ananya_r", "raj_kapoor", "mohan.v", "rhea.d", "mark_johnson"};
         String[] modules = {"AuthService", "Bookstack", "Inventory", "Checkout", "Billing"};
@@ -64,8 +80,8 @@ public class ExcelDataGenerator {
 
         // Create header row
         Row header = sheet.createRow(0);
-        String[] columns = {"errorCode", "exceptionMessage", "timestamp", "userId", "deviceType",
-                "appVersion", "sessionId", "errorMessage", "module", "username"};
+        String[] columns = {"errorCode", "errorMessage", "timestamp", "userId", "deviceType",
+                "appVersion", "sessionId", "exceptionMessage", "module", "username", "RCA", "Mitigation"};
         for (int i = 0; i < columns.length; i++) {
             Cell cell = header.createCell(i);
             cell.setCellValue(columns[i]);
@@ -77,6 +93,8 @@ public class ExcelDataGenerator {
                 String errorCode = errorCodes[idx];
                 String errorMessage = errorMessages[idx];
                 String exceptionMessage = exceptionMsgs[idx];
+                String RCAMessage = RCA[idx];
+                String MitiMessage = Mitigation[idx];
 
                 // Increment timestamp by 30 seconds per log
                 Date currentDate = new Date(baseTime + i * 30000);
@@ -101,6 +119,8 @@ public class ExcelDataGenerator {
                 row.createCell(7).setCellValue(errorMessage);
                 row.createCell(8).setCellValue(module);
                 row.createCell(9).setCellValue(username);
+                row.createCell(10).setCellValue(RCAMessage);
+                row.createCell(11).setCellValue(MitiMessage);
             }
 
             // Auto-size all columns
@@ -109,7 +129,7 @@ public class ExcelDataGenerator {
             }
 
             // Write workbook to file
-            try (FileOutputStream fos = new FileOutputStream("server_error_log.xlsx")) {
+            try (FileOutputStream fos = new FileOutputStream("server_error_log_Master.xlsx")) {
                 workbook.write(fos);
             }
 
