@@ -82,6 +82,28 @@ public class HTMLGenerator {
                     if (excelCol.equalsIgnoreCase("status")) {
                         String cssClass = "status-" + cellValue.toUpperCase();
                         writer.write("<td class='" + cssClass + "'>" + cellValue + "</td>");
+                    } else if (excelCol.equalsIgnoreCase("Similarity_Score")) {
+                        // Get status value for this row
+                        String statusValue = "";
+                        int statusColIndex = columnIndices.getOrDefault("status", -1);
+                        if (statusColIndex != -1) {
+                            Cell statusCell = row.getCell(statusColIndex);
+                            if (statusCell != null) {
+                                statusValue = getCellValueAsString(statusCell);
+                            }
+                        }
+
+                        if (statusValue.equalsIgnoreCase("PASSED")) {
+                            writer.write("<td></td>");
+                        } else {
+                            try {
+                                double score = Double.parseDouble(cellValue);
+                                String formattedScore = String.format("%.2f%%", score * 100);
+                                writer.write("<td>" + formattedScore + "</td>");
+                            } catch (NumberFormatException e) {
+                                writer.write("<td>" + cellValue + "</td>"); // fallback
+                            }
+                        }
                     } else {
                         writer.write("<td>" + cellValue + "</td>");
                     }
