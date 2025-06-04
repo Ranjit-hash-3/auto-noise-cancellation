@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 public class ErrorLogsGenerator implements Errors{
 
     public static void main(String[] args) throws IOException {
-        // Base time: 5th June 2025, 07:21:00
         Calendar calendar = Calendar.getInstance();
         calendar.set(2025, Calendar.JUNE, 5, 7, 21, 0);
         calendar.set(Calendar.MILLISECOND, 0);
