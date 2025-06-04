@@ -9,6 +9,13 @@ public class ErrorTestData {
     private String rca;
     private String mitigation;
 
+
+
+    private String sessionId;
+    private String module;
+    private String username;
+
+
     private String errorMessages;
 
     public String getErrorMessages() {
@@ -89,5 +96,29 @@ public class ErrorTestData {
 
     public void setMitigation(String mitigation) {
         this.mitigation = mitigation;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
