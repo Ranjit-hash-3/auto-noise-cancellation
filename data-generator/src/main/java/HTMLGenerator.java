@@ -7,7 +7,7 @@ import java.util.*;
 public class HTMLGenerator {
 
     public static void main(String[] args) {
-        String excelFilePath = "C:\\Users\\modiy\\Downloads\\failed_cases_with_predictions.xlsx";
+        String excelFilePath = System.getProperty("user.dir")+"\\final_output_with_AI_summary.xlsx";
         String htmlFilePath = "New_test_report.html";
 
         Map<String, String> columnMapping = new LinkedHashMap<>();
@@ -20,6 +20,9 @@ public class HTMLGenerator {
         columnMapping.put("Similarity_Score", "Similarity Score");
         columnMapping.put("Predicted_RCA", "Probable Failure Cause");
         columnMapping.put("Predicted_Mitigation", "Remediation Steps");
+        columnMapping.put("AI_Generated", "AI Generated");
+        columnMapping.put("category", "Category");
+        columnMapping.put("JIRA_Defect_ID", "JIRA DefectID");
 
         convertExcelToHtml(excelFilePath, htmlFilePath, columnMapping);
     }
